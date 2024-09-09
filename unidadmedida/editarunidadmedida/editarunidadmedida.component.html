@@ -1,0 +1,33 @@
+<div class="card my-5">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <h3 class="mb-0">Editar Unidad de Medida</h3>
+      </div>
+      <form [formGroup]="frm_UnidadMedida" (ngSubmit)="actualizar()">
+        <div class="row">
+          <div class="form-group mb-3">
+            <label class="form-label" for="Detalle">Detalle</label>
+            <input formControlName="Detalle" type="text" class="form-control" id="Detalle" placeholder="Ingrese el Detalle" />
+            <div *ngIf="frm_UnidadMedida.get('Detalle').invalid && frm_UnidadMedida.get('Detalle').touched">
+              <small style="color: red">El detalle es requerido</small>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-label" for="Tipo">Tipo</label>
+            <select class="form-control" formControlName="Tipo">
+              <option value="0">Presentación</option>
+              <option value="1">Unidad de Medida</option>
+              <option value="2">Factor de Conversión</option>
+            </select>
+            <div *ngIf="frm_UnidadMedida.get('Tipo').invalid && frm_UnidadMedida.get('Tipo').touched">
+              <small style="color: red">El tipo es requerido</small>
+            </div>
+          </div>
+          <div class="d-grid mt-3">
+            <button type="submit" class="btn btn-primary" [disabled]="frm_UnidadMedida.invalid">Actualizar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
